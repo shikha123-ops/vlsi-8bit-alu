@@ -31,23 +31,28 @@ The opcode selects the operation that the ALU performs.
 
 ```mermaid
 flowchart LR
+
     A["A[7:0]"] --> ALU["8-BIT ALU"]
     B["B[7:0]"] --> ALU
     OP["Opcode[2:0]"] --> ALU
 
-    ALU --> R["Result[7:0]"]
-    ALU --> Z["Zero"]
-    ALU --> C["Carry / Borrow"]
-    ALU --> V["Overflow"]
+    ALU --> RESULT["Result[7:0]"]
 
-    ALU --> ADD["000 — ADD"]
-    ALU --> SUB["001 — SUB"]
-    ALU --> AND["010 — AND"]
-    ALU --> OR["011 — OR"]
-    ALU --> XOR["100 — XOR"]
-    ALU --> NOT["101 — NOT"]
-    ALU --> INC["110 — INC"]
-    ALU --> DEC["111 — DEC"]
+    ALU --> FLAGS["Status Flags"]
+    FLAGS --> ZERO["Zero"]
+    FLAGS --> CARRY["Carry / Borrow"]
+    FLAGS --> OVERFLOW["Overflow"]
+
+    OPS["Operation Selection"] --> ALU
+
+    ADD["000 — ADD<br/>A + B"] --> OPS
+    SUB["001 — SUB<br/>A - B"] --> OPS
+    AND["010 — AND<br/>A & B"] --> OPS
+    OR["011 — OR<br/>A | B"] --> OPS
+    XOR["100 — XOR<br/>A ^ B"] --> OPS
+    NOT["101 — NOT<br/>~A"] --> OPS
+    INC["110 — INC<br/>A + 1"] --> OPS
+    DEC["111 — DEC<br/>A - 1"] --> OPS
 ```
 ## Flags
 
