@@ -29,18 +29,25 @@ The opcode selects the operation that the ALU performs.
 
 ### Block Diagram
 
-```text
-              ┌─────────────────────┐
-      A[7:0] ─►                     │
-              │                     │
-      B[7:0] ─►      8-BIT ALU      ├──► Result[7:0]
-              │                     │
- Opcode[2:0] ─►                     ├──► Zero
-              │                     ├──► Carry
-              │                     └──► Overflow
-              └─────────────────────┘
+```mermaid
+flowchart LR
+    A["A[7:0]"] --> ALU["8-BIT ALU"]
+    B["B[7:0]"] --> ALU
+    OP["Opcode[2:0]"] --> ALU
 
+    ALU --> R["Result[7:0]"]
+    ALU --> Z["Zero"]
+    ALU --> C["Carry / Borrow"]
+    ALU --> V["Overflow"]
 
+    ALU --> ADD["000 — ADD"]
+    ALU --> SUB["001 — SUB"]
+    ALU --> AND["010 — AND"]
+    ALU --> OR["011 — OR"]
+    ALU --> XOR["100 — XOR"]
+    ALU --> NOT["101 — NOT"]
+    ALU --> INC["110 — INC"]
+    ALU --> DEC["111 — DEC"]
 ```
 ## Flags
 
