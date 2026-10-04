@@ -1,0 +1,11 @@
+# Simulation outputs
+sim/*.vcd
+sim/*_sim
+sim/alu_sim
+sim/alu_sim_original
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/

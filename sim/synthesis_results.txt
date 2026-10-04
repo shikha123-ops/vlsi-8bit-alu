@@ -1,0 +1,70 @@
+8-BIT ALU — SYNTHESIS AND OPTIMIZATION RESULTS
+================================================
+
+RTL Design
+----------
+Inputs:
+A        : 8-bit
+B        : 8-bit
+Opcode   : 3-bit
+
+Outputs:
+Result   : 8-bit
+Zero     : 1-bit
+Carry    : 1-bit
+Overflow : 1-bit
+
+
+FUNCTIONAL VERIFICATION
+-----------------------
+Total Tests  : 14
+Passed       : 14
+Failed       : 0
+
+Verification Status:
+ALL TESTS PASSED
+
+
+ORIGINAL SYNTHESIS
+------------------
+Total Cells : 365
+
+AND : 139
+MUX : 10
+NOT : 32
+OR  : 138
+XOR : 46
+
+
+OPTIMIZED SYNTHESIS
+-------------------
+Optimization:
+Yosys + ABC
+
+Total Cells : 278
+
+AND : 123
+MUX : 3
+NOT : 25
+OR  : 98
+XOR : 29
+
+
+OPTIMIZATION RESULT
+-------------------
+Original Cells : 365
+Optimized Cells: 278
+
+Cells Reduced  : 87
+Reduction      : approximately 23.8%
+
+Functional Verification After Optimization:
+14/14 tests passed
+
+
+IMPORTANT NOTE
+--------------
+The cell reduction represents logic-cell/gate-level
+optimization. It is not a physical silicon area measurement
+because no standard-cell technology library or physical
+layout has been used.

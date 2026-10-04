@@ -1,0 +1,13 @@
+read_verilog rtl/alu_8bit.v
+
+hierarchy -top alu_8bit
+
+proc
+opt
+
+techmap
+opt
+
+stat
+
+write_verilog sim/alu_synthesized.v
